@@ -44,7 +44,9 @@ dagger.#Plan & {
 		// Deploy todoapp
 		deploy: netlify.#Deploy & {
 			contents: actions.build.output
-			site:     string | *"dagger-todoapp"
+			site:     client.env.APP_NAME
+			token:    client.env.NETLIFY_TOKEN
+			team:     client.env.NETLIFY_TEAM
 		}
 	}
 }
