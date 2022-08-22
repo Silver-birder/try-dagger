@@ -10,7 +10,9 @@ on:
 env:
   # This needs to be unique across all of netlify.app
   APP_NAME: dagger-todoapp
-  NETLIFY_TEAM: silverbirder
+  NETLIFY_TEAM: silverbirder      
+  # Get one from https://app.netlify.com/user/applications/personal
+  NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
 jobs:
   dagger:
@@ -30,6 +32,3 @@ jobs:
             project init
             project update
             do deploy
-        env:
-          # Get one from https://app.netlify.com/user/applications/personal
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
