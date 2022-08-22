@@ -21,6 +21,7 @@ jobs:
 
       - name: Create config.json
         run: |
+          mkdir -p /run/secrets/
           touch /run/secrets/token
       # You need to run `dagger project init` locally before and commit the cue.mod directory to the repository with its contents
       - name: Deploy to Netlify
