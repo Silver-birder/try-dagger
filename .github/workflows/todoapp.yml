@@ -11,6 +11,7 @@ env:
   # This needs to be unique across all of netlify.app
   APP_NAME: todoapp-dagger-europa
   NETLIFY_TEAM: dagger
+  NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
 jobs:
   dagger:
@@ -19,6 +20,9 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
       # You need to run `dagger project init` locally before and commit the cue.mod directory to the repository with its contents
+      - name: Debug
+        run: |
+          echo $NETLIFY_TOKEN
       - name: Deploy to Netlify
         uses: dagger/dagger-for-github@v3
         # See all options at https://github.com/dagger/dagger-for-github
@@ -28,6 +32,3 @@ jobs:
           cmds: |
             project update
             do deploy
-        env:
-          # Get one from https://app.netlify.com/user/applications/personal
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
