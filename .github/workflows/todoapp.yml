@@ -23,6 +23,8 @@ jobs:
       - name: Debug
         run: |
           echo $NETLIFY_TOKEN
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Deploy to Netlify
         uses: dagger/dagger-for-github@v3
         # See all options at https://github.com/dagger/dagger-for-github
