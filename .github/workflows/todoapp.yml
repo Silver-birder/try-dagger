@@ -20,9 +20,9 @@ jobs:
           version: 0.2
           # To pin external dependencies, you can use `project update github.com/[package-source]@v[n]`
           cmds: |
+            project init
             project update
             do deploy
         env:
-          APP_NAME: dagger-todoapp
-          NETLIFY_TEAM: silverbirder
+          USER: ${{ secrets.USER }}
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
