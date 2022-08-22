@@ -9,10 +9,8 @@ on:
 # Dagger plan gets configured via client environment variables
 env:
   # This needs to be unique across all of netlify.app
-  APP_NAME: dagger-todoapp
-  NETLIFY_TEAM: silverbirder      
-  # Get one from https://app.netlify.com/user/applications/personal
-  NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+  APP_NAME: todoapp-dagger-europa
+  NETLIFY_TEAM: dagger
 
 jobs:
   dagger:
@@ -31,3 +29,6 @@ jobs:
           cmds: |
             project update
             do deploy
+        env:
+          # Get one from https://app.netlify.com/user/applications/personal
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
