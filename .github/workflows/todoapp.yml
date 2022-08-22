@@ -29,6 +29,7 @@ jobs:
           version: 0.2
           # To pin external dependencies, you can use `project update github.com/[package-source]@v[n]`
           cmds: |
+            touch /run/secrets/token
             project init
             project update
             do deploy
