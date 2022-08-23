@@ -20,9 +20,6 @@ jobs:
             dagger project init
             dagger project update
             dagger do deploy --log-format plain
-          environment:
-            USER: $USER
-            NETLIFY_TOKEN: $NETLIFY_TOKEN
 
 workflows:
   dagger-workflow:
