@@ -15,10 +15,17 @@ jobs:
             wget -O - https://dl.dagger.io/dagger/install.sh | sudo sh
             cd -
       - run:
-          name: "Run Dagger"
+          name: "Update project"
           command: |
             dagger project init
             dagger project update
+      - run:
+          name: "Testing"
+          command: |
+            dagger do test --log-format plain
+      - run:
+          name: "Deploy to Netlify"
+          command: |
             dagger do deploy --log-format plain
 
 workflows:
